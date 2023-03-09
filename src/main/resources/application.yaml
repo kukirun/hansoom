@@ -1,0 +1,14 @@
+server:
+  port : 8080
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://kukirundb01.caxapjytxuey.ap-northeast-2.rds.amazonaws.com:3306/hansoom?useSSL=false
+    username: kukirun
+    password: dkakwhsznzl23
+  

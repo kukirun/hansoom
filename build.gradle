@@ -1,0 +1,44 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.2'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.sml'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	//자바 11에서 javax.xml.bind.JAXBException이 삭제 되어 다운받아줌
+	implementation 'javax.xml.bind:jaxb-api:2.3.0'
+	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.6'
+	
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
