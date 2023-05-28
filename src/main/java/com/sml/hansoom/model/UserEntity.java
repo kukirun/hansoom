@@ -30,4 +30,6 @@ public class UserEntity {
 	private String password;
 	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
+	private String refreshToken;
 }

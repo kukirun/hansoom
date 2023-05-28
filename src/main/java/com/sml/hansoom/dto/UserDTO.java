@@ -1,6 +1,5 @@
 package com.sml.hansoom.dto;
 
-import com.sml.hansoom.model.TempEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserDTO {
 	private String token;
+	private String refreshToken;
 	private String email;
 	private String username;
 	private String id;

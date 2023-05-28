@@ -7,11 +7,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import com.sml.hansoom.dto.UserDTO;
 import com.sml.hansoom.model.UserEntity;
 import com.sml.hansoom.persistence.UserRepository;
 
-
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -43,5 +45,15 @@ public class UserService {
 		}
 		
 		return null;
+	}
+	
+	
+	public UserEntity getByEmail(String email) {
+		final UserEntity originalUser = userRepository.findByEmail(email);
+		return originalUser;
+	}
+	
+	public void updateRefreshToken(UserDTO userdto) {
+		userRepository.updateRefreshToken(userdto.getRefreshToken(), userdto.getEmail());
 	}
 }
